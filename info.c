@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pt_char.c                                          :+:      :+:    :+:   */
+/*   info.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 16:03:01 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/22 16:05:12 by hyeonhki         ###   ########.fr       */
+/*   Created: 2021/02/22 16:06:10 by hyeonhki          #+#    #+#             */
+/*   Updated: 2021/02/22 16:38:01 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void pt_char(int a)
+void	info_init(t_info *info)
 {
-	write(1, &a, 1);
+	info.buf_size = 0;
+	info.width = 0;
+	info.precise = 0;
+	info.specifier = 0;
+	info.flag = 0;
 }
 
-void	pt_normal(char **str, int *ret)
+void	save_info(t_info *info, char *str)
 {
-	while (**str && **str != '%')
-	{
-		pt_char(**str);
-		(*ret)++;
-		(*str)++;
-	}
-}
-
-void	pt_double(char **str, int *ret)
-{
-	pt_char('%');
-	(*str) += 2;
-	(*ret)++;
+	ft_strch
 }
