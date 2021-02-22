@@ -6,7 +6,7 @@
 /*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 15:30:49 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:58 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:03:33 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ char	*ft_strndup(const char *src, int n)
 	temp[i] = '\0';
 	return (temp);
 }
-
-char	*ft_
 
 char	*ft_dup_options(char *str, char *type, int *index)
 {

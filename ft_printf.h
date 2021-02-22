@@ -6,7 +6,7 @@
 /*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:33:39 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/22 16:19:21 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/02/22 16:56:59 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # define FLAG "0-*"
 # define SPECIFIER "csdiupxX" //u,xX, 1. di(-) 2. p(0x) 3. cs -> 2.22 !
+//c 
+//s width flag
 
 typedef struct	s_info
 {
@@ -27,7 +29,7 @@ typedef struct	s_info
 	int 		flag;
 	int			width;
 	int			precise;
-	int			specifier;
+	int			spec;
 }				t_info;
 
 void			pt_char(int a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeonhki <hyeonhki@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:47:59 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/15 15:48:02 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:05:12 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 //	printf("경우 3: %difjoi",1234); //서식지정자이후 연속
 	// '1234'ifjoi로 출력된다. 끝을 서식지정자로 구분
 //	setbuf(stdout, NULL);
-	ft_printf("경우 4: %%%% abcdef %12345d abcdef"); //%연속
+	ft_printf("경우 4: %%%% abcdef<%5c>abcdef",' '); //%연속
 //	char *a = "경우 5: 023.6d\n";
 //	printf("실제 : %lu, ret : %d\n",strlen(a),ft_printf(a));
 	// % 하나 출력, 뒤에 뭐없으면 출력 X

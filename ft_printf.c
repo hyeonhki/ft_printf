@@ -6,16 +6,22 @@
 /*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:20:16 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/22 16:15:47 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:07:59 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int		print_info(t_list *info, va_list ap);
+int		print_info(t_info *info, va_list ap)
+{
+	if (info->spec == 'c')
+		pt_char(va_arg(ap,int));
+		//c도 옵션이 있구나..
+	return (0);
+}
 
-void	case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
+int		case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
 {
 	char			*temp;
 	int				i;
@@ -31,13 +37,14 @@ void	case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
 	info_init(info); //구조체 초기화
 	save_info(info, box); //구조체 기록
 	print_info(info, ap); //구조체 확인 및 출력
+	return (0);
 }
 
 int		t_operator(char *input, va_list ap)
 {
 	int				ret;
 	char			*parsing;
-	t_options		*options;
+	t_info			*info;
 
 	ret = 0;
 	while (*input)
