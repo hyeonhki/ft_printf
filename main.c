@@ -23,7 +23,14 @@ int main()
 //	printf("경우 3: %difjoi",1234); //서식지정자이후 연속
 	// '1234'ifjoi로 출력된다. 끝을 서식지정자로 구분
 //	setbuf(stdout, NULL);
-	ft_printf("경우 4: %%%% abcdef<%5c>abcdef",' '); //%연속
+//	printf("%d\n",ft_atoi("1234567d"));
+//	printf("printf : %*10c\n",5,'a');
+	setbuf(stdout, NULL);
+//	printf("printf : %0c\n", 10, 'a');
+	printf("printf : %*5s and %c\n", 2, "hi",'c');
+//	ft_printf("ft_printf : %-*s and %c\n",3, "hi", 'c');
+//	ft_strlen("c");
+//	ft_printf("예시 : [%c]",'a'); //%연속
 //	char *a = "경우 5: 023.6d\n";
 //	printf("실제 : %lu, ret : %d\n",strlen(a),ft_printf(a));
 	// % 하나 출력, 뒤에 뭐없으면 출력 X

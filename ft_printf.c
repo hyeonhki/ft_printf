@@ -16,8 +16,9 @@
 int		print_info(t_info *info, va_list ap)
 {
 	if (info->spec == 'c')
-		pt_char(va_arg(ap,int));
-		//c도 옵션이 있구나..
+		return (pt_c(ap, info));
+	if (info->spec == 's')
+		return (pt_string(ap, info));
 	return (0);
 }
 
@@ -35,7 +36,7 @@ int		case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
 	if (!(info = malloc(sizeof(t_info) * 1)))
 		return (0);
 	info_init(info); //구조체 초기화
-	save_info(info, box); //구조체 기록
+	save_info(info, box, ap); //구조체 기록
 	print_info(info, ap); //구조체 확인 및 출력
 	return (0);
 }

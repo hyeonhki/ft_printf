@@ -12,6 +12,41 @@
 
 #include "ft_printf.h"
 
+void	ft_bewhat(void *ptr, int size, int what)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < size)
+	{
+		*((char *)ptr + i) = what;
+		i++;
+	}
+}
+
+int		ft_check_init(char c, const char *src)
+{
+	while (*src)
+	{
+		if (c == *src)
+			return (1);
+		src++;
+	}
+	return (0);
+}
+
+void	ft_ptstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, str + i, 1);
+		i++;
+	}
+}
+
 char	*ft_strndup(const char *src, int n)
 {
 	char	*temp;

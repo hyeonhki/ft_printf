@@ -17,7 +17,9 @@
 
 void tester2(va_list ap)
 {
-	printf("%d", va_arg(ap, int));
+	char *ret;
+	ret = va_arg(ap, char *);
+	printf("test : %s", ret);
 }
 
 void printTEST(char *input, ...)
@@ -29,23 +31,9 @@ void printTEST(char *input, ...)
 	va_end(ap);
 }
 
-void tester(char **c)
-{
-	char **b;
-	b = c;
-	printf("%s\n", *b);
-	*b = *b+3;
-	
-}
-
 int main()
 {
-	char *a;
-	char *b;
-	a = "abcdef";
-	b = a;
-	b += 2;
-	printf("%s",b);
+	printTEST("abc", "abcdef");
 //	printTEST("abcde\n", 123, 456);
 //	char *a;
 //	a = "abcdefgh";
