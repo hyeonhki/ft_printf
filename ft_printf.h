@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdio.h> //지우는 거 잊지말기
 # include "./libft/libft.h"
 
 # define FLAG "0-*"
@@ -24,11 +25,10 @@
 
 typedef struct	s_info
 {
-	int			buf_size;
-	int 		minus;
-	int			flag;
-	int			zero;
-	int			ch;
+	int 		f_minus;
+	int			f_zero;
+	int			f_space;
+	int			f_size;
 	int			width;
 	int			precise;
 	int			spec;
@@ -43,6 +43,7 @@ int				pt_string(va_list ap, t_info *info);
 char			*ft_strndup(const char *src, int n);
 char			*ft_dup_options(char *str, char *type, int *index);
 void			ft_bewhat(void *ptr, int size, int what);
+void			ft_check_flag(char **str, char *flag, t_info *info);
 int				ft_check_init(char c, const char *src);
 void			ft_ptstr(char *str);
 

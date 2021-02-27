@@ -45,7 +45,7 @@ int		pt_c(va_list ap, t_info *info)
 	if (!(buf = (char *)malloc(info->width)))
 		return (0);
 	ft_bewhat(buf, info->width, ' ');
-	if (info->flag == '-')
+	if (info->f_minus == 1)
 		*buf = (char)va_arg(ap, int);
 	else
 	{
@@ -63,14 +63,22 @@ int		pt_string(va_list ap, t_info *info)
 	char	*ret;
 	char	*buf;
 	int		len;
+	int		a;
 
+	//precise 적용 후 위드 수정
 	ret = va_arg(ap, char *);
 	len = ft_strlen(ret);
-	if (info->width <= len)
-		info->width = len;
-	buf = (char *)malloc(info->width - len);
-	ft_bewhat(buf, info->width - len, ' ');
-	if (info->flag == '-')
+	//precise가 없는 경우 위드 길이 해결
+//	printf("\nwidth : %d, %d\n",info->width,info->precise);
+	if (info->precise == -1 && info->width <= len)
+		info->width = len; //buf는 0길이가 되고 문자열만 출력되는 경우
+	//precise 의 경우
+	if (info->precise >= 0 && info->precise <= len)
+		*(ret + (info->precise)) = 0;
+	// 길이를 다시 재서 precise시 반영
+	buf = (char *)malloc(info->width - ft_strlen(ret));
+	ft_bewhat(buf, info->width - len, info->f_space);
+	if (info->f_minus == 1)
 	{
 		ft_ptstr(ret);
 		ft_ptstr(buf);

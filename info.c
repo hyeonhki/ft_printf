@@ -14,26 +14,22 @@
 
 void	info_init(t_info *info)
 {
-	info->buf_size = 0;
+	info->f_minus = 0;
+	info->f_zero = 0;
+	info->f_space = ' ';
+	info->f_size = 0;
 	info->width = 0;
-	info->precise = 0;
+	info->precise = -1;
 	info->spec = 0;
-	info->flag = 0;
-	info->minus = 0;
-	info->zero = 0;
-	info->ch = ' ';
 }
 
 void	save_info(t_info *info, char *str, va_list ap)
 {
 	int			i;
 
-	//width와 *의 중복 경우 *만! 같이쓰면 warning
-	//flag의 중복 처리
 	i = 0;
-	if (ft_check_init(str[i], FLAG))
-		info->flag = str[i++];
-	if (info->flag == '*')
+	ft_check_flag(&str, FLAG, info);
+	if (info->f_size == 1)
 		info->width = va_arg(ap, int);
 	else if (str[i] >= '0' && str[i] <= '9')
 		info->width = ft_atoi(str + i);
@@ -42,7 +38,7 @@ void	save_info(t_info *info, char *str, va_list ap)
 	if (str[i] == '.')
 	{
 		info->precise = ft_atoi(&str[++i]);
-		while (str[i] <= '0' && str[i] <= '9')
+		while (str[i] >= '0' && str[i] <= '9')
 			i++;
 	}
 	if (ft_check_init(str[i], SPECIFIER))

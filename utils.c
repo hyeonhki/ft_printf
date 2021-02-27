@@ -24,6 +24,33 @@ void	ft_bewhat(void *ptr, int size, int what)
 	}
 }
 
+void	ft_check_flag(char **str, char *flag, t_info *info)
+{
+	while (1)
+	{
+		if (**str == '0')
+		{
+			info->f_zero = '0';
+			info->f_space = 0;
+			(*str)++;
+			continue;
+		}
+		if (**str == '-')
+		{
+			info->f_minus = 1;
+			(*str)++;
+			continue;
+		}
+		if (**str == '*')
+		{
+			info->f_size = 1;
+			(*str)++;
+			continue;
+		}
+		break;
+	}
+}
+
 int		ft_check_init(char c, const char *src)
 {
 	while (*src)
