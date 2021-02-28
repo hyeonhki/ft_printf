@@ -31,9 +31,27 @@ void printTEST(char *input, ...)
 	va_end(ap);
 }
 
+void	test(char **buf)
+{
+	(*buf)[3] = '\0';
+}
+
+#include <stdlib.h>
+
 int main()
 {
-	printTEST("abc", "abcdef");
+	char *buf;
+	int i;
+	i = 0;
+
+	buf = (char *)malloc(5);
+	while (i <= 4)
+	{
+		buf[i] = i + '0';
+		i++;
+	}
+	buf[3] = '\0';
+	printf("%s\n",buf);
 //	printTEST("abcde\n", 123, 456);
 //	char *a;
 //	a = "abcdefgh";
