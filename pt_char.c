@@ -63,7 +63,6 @@ int		pt_string(va_list ap, t_info *info)
 	char	*ret;
 	char	*buf;
 	int		len;
-	int		a;
 
 	//precise 적용 후 위드 수정
 	ret = ft_strdup(va_arg(ap, char *));

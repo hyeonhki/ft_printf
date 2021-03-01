@@ -19,6 +19,8 @@ int		print_info(t_info *info, va_list ap)
 		return (pt_c(ap, info));
 	if (info->spec == 's')
 		return (pt_string(ap, info));
+	if (info->spec == 'd')
+		return (pt_d(ap, info));
 	return (0);
 }
 
@@ -44,8 +46,6 @@ int		case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
 int		t_operator(char *input, va_list ap)
 {
 	int				ret;
-	char			*parsing;
-	t_info			*info;
 
 	ret = 0;
 	while (*input)

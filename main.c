@@ -27,9 +27,11 @@ int main()
 //	printf("printf : %*10c\n",5,'a');
 	setbuf(stdout, NULL);
 //	printf("printf : %0c\n", 10, 'a');
-	printf("printf : [%.5c]\n",'a');
+	printf("printf : [%5.*d]\n",4,135);
+	ft_printf("printf : [%-4.*d]\n",-4,-135);
+//	ft_printf("ft_printf : [%.1d]\n",12);
 	// d는 .과 0이 반응 X
-	ft_printf("ft_printf : [%*c]\n", 8,'a');
+//	ft_printf("ft_printf : [%*c]\n", 8,'a');
 //	ft_printf("ft_printf : %-*s and %c\n",3, "hi", 'c');
 //	ft_strlen("c");
 //	ft_printf("예시 : [%c]",'a'); //%연속

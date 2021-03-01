@@ -14,8 +14,8 @@ NAME = libftprintf.a
 LIBFT = libft
 LIBFT_LIB = libft.a
 
-SRCS =
-
+SRCS = ./ft_printf.c ./utils.c\
+		./info.c ./pt_char.c ./pt_nbr.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -c

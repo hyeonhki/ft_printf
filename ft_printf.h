@@ -39,13 +39,15 @@ int				pt_c(va_list ap, t_info *info);
 void			pt_normal(char **str, int *ret);
 void			pt_double(char **str, int *ret);
 int				pt_string(va_list ap, t_info *info);
+int				pt_d(va_list ap, t_info *info);
 
 char			*ft_strndup(const char *src, int n);
 char			*ft_dup_options(char *str, char *type, int *index);
 void			ft_bewhat(void *ptr, int size, int what);
-void			ft_check_flag(char **str, char *flag, t_info *info);
+void			ft_check_flag(char **str, t_info *info);
 int				ft_check_init(char c, const char *src);
 void			ft_ptstr(char *str);
+char			*ft_bufwhat(int size, int what);
 
 void			info_init(t_info *info);
 void			save_info(t_info *info, char *str, va_list ap);

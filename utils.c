@@ -14,8 +14,10 @@
 
 void	ft_bewhat(void *ptr, int size, int what)
 {
-	unsigned int i;
+	int i;
 
+	if (size < 0)
+		return ;
 	i = 0;
 	while (i < size)
 	{
@@ -24,7 +26,22 @@ void	ft_bewhat(void *ptr, int size, int what)
 	}
 }
 
-void	ft_check_flag(char **str, char *flag, t_info *info)
+char	*ft_bufwhat(int size, int what)
+{
+	char	*temp;
+	int		i;
+
+	i = 0;
+	temp = (char *)malloc(size);
+	while (i < size)
+	{
+		*(temp + i) = what;
+		i++;
+	}
+	return (temp);
+}
+
+void	ft_check_flag(char **str, t_info *info)
 {
 	while (1)
 	{
@@ -66,6 +83,8 @@ void	ft_ptstr(char *str)
 {
 	int i;
 
+	if (str == 0)
+		return ;
 	i = 0;
 	while (str[i])
 	{

@@ -28,9 +28,16 @@ void	save_info(t_info *info, char *str, va_list ap)
 	int			i;
 
 	i = 0;
-	ft_check_flag(&str, FLAG, info);
+	ft_check_flag(&str, info);
 	if (info->f_size == 1)
+	{
 		info->width = va_arg(ap, int);
+		if (info->width < 0)
+		{
+			info->width *= -1;
+			info->f_minus = 1;
+		}
+	}
 	else if (str[i] >= '0' && str[i] <= '9')
 		info->width = ft_atoi(str + i);
 	while (str[i] >= '0' && str[i] <= '9')
