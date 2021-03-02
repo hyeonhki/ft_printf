@@ -27,8 +27,8 @@ int main()
 //	printf("printf : %*10c\n",5,'a');
 	setbuf(stdout, NULL);
 //	printf("printf : %0c\n", 10, 'a');
-	printf("printf : [%5.*d]\n",4,135);
-	ft_printf("printf : [%-4.*d]\n",-4,-135);
+	printf("printf : [%-3d]\n",-135);
+	ft_printf("printf : [%-3d]\n",-135);
 //	ft_printf("ft_printf : [%.1d]\n",12);
 	// d는 .과 0이 반응 X
 //	ft_printf("ft_printf : [%*c]\n", 8,'a');

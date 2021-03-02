@@ -32,6 +32,10 @@ typedef struct	s_info
 	int			width;
 	int			precise;
 	int			spec;
+	int			i; // 어쩔수가 없다..
+	int			int_d;
+	int			minus_d;
+	int			len;
 }				t_info;
 
 void			pt_char(int a);
@@ -48,6 +52,7 @@ void			ft_check_flag(char **str, t_info *info);
 int				ft_check_init(char c, const char *src);
 void			ft_ptstr(char *str);
 char			*ft_bufwhat(int size, int what);
+void			ft_pt2str(char *s1, char *s2);
 
 void			info_init(t_info *info);
 void			save_info(t_info *info, char *str, va_list ap);

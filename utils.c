@@ -93,6 +93,26 @@ void	ft_ptstr(char *str)
 	}
 }
 
+void	ft_pt2str(char *s1, char *s2)
+{
+	if (s1 != 0)
+	{
+		while(*s1)
+		{
+			pt_char(*s1);
+			s1++;
+		}
+	}
+	if (s2 != 0)
+	{
+		while(*s2)
+		{
+			pt_char(*s2);
+			s2++;
+		}
+	}
+}
+
 char	*ft_strndup(const char *src, int n)
 {
 	char	*temp;
