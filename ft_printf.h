@@ -36,6 +36,10 @@ typedef struct	s_info
 	int			int_d;
 	int			minus_d;
 	int			len;
+	int			cnt;
+	char		*ret;
+	char		*str;
+	char		*buf;
 }				t_info;
 
 void			pt_char(int a);
@@ -44,6 +48,8 @@ void			pt_normal(char **str, int *ret);
 void			pt_double(char **str, int *ret);
 int				pt_string(va_list ap, t_info *info);
 int				pt_d(va_list ap, t_info *info);
+int				pt_plusd(t_info *info);
+int				pt_minusd(t_info *info);
 
 char			*ft_strndup(const char *src, int n);
 char			*ft_dup_options(char *str, char *type, int *index);
@@ -53,6 +59,7 @@ int				ft_check_init(char c, const char *src);
 void			ft_ptstr(char *str);
 char			*ft_bufwhat(int size, int what);
 void			ft_pt2str(char *s1, char *s2);
+void			ft_mvminus(char **str, int d);
 
 void			info_init(t_info *info);
 void			save_info(t_info *info, char *str, va_list ap);

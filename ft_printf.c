@@ -20,7 +20,20 @@ int		print_info(t_info *info, va_list ap)
 	if (info->spec == 's')
 		return (pt_string(ap, info));
 	if (info->spec == 'd')
-		return (pt_d(ap, info));
+	{
+		info->int_d = va_arg(ap, int);
+		return (info->int_d >= 0 ? pt_plusd(info) : pt_minusd(info));
+	}
+/*	if (info->spec == 'i')
+
+	if (info->spec == 'u')
+
+	if (info->spec == 'p')
+
+	if (info->spec == 'x')
+
+	if (info->spec == 'X')
+*/
 	return (0);
 }
 
@@ -39,8 +52,7 @@ int		case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
 		return (0);
 	info_init(info); //구조체 초기화
 	save_info(info, box, ap); //구조체 기록
-	print_info(info, ap); //구조체 확인 및 출력
-	return (0);
+	return (print_info(info, ap)); //구조체 확인 및 출력
 }
 
 int		t_operator(char *input, va_list ap)
@@ -57,8 +69,9 @@ int		t_operator(char *input, va_list ap)
 			pt_double(&input, &ret);
 			continue ;
 		}
+		// 여기까진 return 값 동작
 		if (*input)
-			case_print(&input, ap);
+			ret += case_print(&input, ap);
 	}
 	return (ret);
 }

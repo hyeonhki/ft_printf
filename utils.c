@@ -12,6 +12,21 @@
 
 #include "ft_printf.h"
 
+void	ft_mvminus(char **str, int d)
+{
+	int	i;
+
+	if (d >= 0)
+		return ;
+	i = 0;
+	while ((*str)[i])
+	{
+		if ((*str)[i] == '-')
+			(*str)[i] = '0';
+		i++;	
+	}
+	**str = '-';
+}
 void	ft_bewhat(void *ptr, int size, int what)
 {
 	int i;
@@ -47,7 +62,7 @@ void	ft_check_flag(char **str, t_info *info)
 	{
 		if (**str == '0')
 		{
-			info->f_zero = '0';
+			info->f_zero = 1;
 			info->f_space = 0;
 			(*str)++;
 			continue;

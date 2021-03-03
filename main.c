@@ -27,8 +27,24 @@ int main()
 //	printf("printf : %*10c\n",5,'a');
 	setbuf(stdout, NULL);
 //	printf("printf : %0c\n", 10, 'a');
-	printf("printf : [%-3d]\n",-135);
-	ft_printf("printf : [%-3d]\n",-135);
+//	int a;
+//	a = printf("%*c",-5,'a');
+//	printf("ft_printf : [%*c]\n",-5,0);
+//	ft_printf("ft_printf : [%*c]\n", 8,'a');
+	printf("%0.d\n", 0);
+	ft_printf("%.0d\n", 1);
+//	printf("l : %d\n",printf("%s",NULL));
+//	printf("len : %d\n",ft_strlen(NULL));
+//	ft_printf("[%s]\n",NULL);
+//	printf("%s",ft_strdup(NULL));
+	
+//	printf("[-4.*d]\n",-4,-135);
+//	ft_printf("[-4.*d]\n",-4,-135);
+//	int b = 0;
+//	a = printf("printf : [%6.5d]\n", 135);
+//	b = ft_printf("printf : [%6.5d]\n",135);
+//	printf("a: %d, b: %d\n",a,b);
+//	ft_printf("printf : [%-3d]\n",-135);
 //	ft_printf("ft_printf : [%.1d]\n",12);
 	// d는 .과 0이 반응 X
 //	ft_printf("ft_printf : [%*c]\n", 8,'a');
