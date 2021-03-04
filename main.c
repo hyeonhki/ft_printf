@@ -32,7 +32,9 @@ int main()
 //	printf("ft_printf : [%*c]\n",-5,0);
 //	ft_printf("ft_printf : [%*c]\n", 8,'a');
 	printf("%0.d\n", 0);
-	ft_printf("%.0d\n", 1);
+	ft_printf("-->|%-4.*d|<--\n", -4, -135);
+	printf("%d\n",printf("%-16s\n", "nark nark"));
+	ft_printf("%d\n",ft_printf("%-16s\n", "nark nark"));
 //	printf("l : %d\n",printf("%s",NULL));
 //	printf("len : %d\n",ft_strlen(NULL));
 //	ft_printf("[%s]\n",NULL);

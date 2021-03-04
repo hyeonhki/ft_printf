@@ -42,6 +42,7 @@ int		pt_d(va_list ap, t_info *info)
 int		pt_plusd(t_info *info)
 {
 	char	*buf;
+
 	if (info->int_d == 0 && info->precise == 0)
 		info->ret = 0;
 	else
@@ -74,20 +75,17 @@ int		pt_minusd(t_info *info)
 	if (info->precise == -1 && info->f_zero == 1)
 	{
 		ft_bewhat(buf, info->width - 1 - info->len, '0');
-		buf = ft_strjoin("-", buf);
-		ft_pt2str(buf, info->ret);
+		ft_pt2str(buf = ft_strjoin("-", buf), info->ret);
 	}
 	else if (info-> f_minus == 1)
 	{
 		ft_bewhat(buf, info->width - 1 - info->len, ' ');
-		info->ret = ft_strjoin("-", info->ret);
-		ft_pt2str(info->ret, buf);
+		ft_pt2str(info->ret = ft_strjoin("-", info->ret), buf);
 	}
 	else
 	{
 		ft_bewhat(buf, info->width - 1 - info->len, ' ');
-		info->ret = ft_strjoin("-", info->ret);
-		ft_pt2str(buf, info->ret);
+		ft_pt2str(buf, info->ret = ft_strjoin("-", info->ret));
 	}
 	return (ft_strlen(buf) + ft_strlen(info->ret));
 }
