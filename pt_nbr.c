@@ -89,4 +89,27 @@ int		pt_minusd(t_info *info)
 	}
 	return (ft_strlen(buf) + ft_strlen(info->ret));
 }
+
+int		pt_u(t_info *info)
+{
+	char	*buf;
+
+	if (info->int_d == 0 && info->precise == 0)
+		info->ret = 0;
+	else
+		info->ret = ft_u_itoa(info->int_d);
+	if (info->precise > (info->len = (int)ft_strlen(info->ret)))
+		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
+	info->len = ft_strlen(info->ret);
+	buf = (char *)malloc(info->width - info->len);
+	if (info->precise == -1 && info->f_zero == 1)
+		ft_bewhat(buf, info->width - info->len, '0');
+	else
+		ft_bewhat(buf, info->width - info->len, ' ');
+	if (info->f_minus == 1)
+		ft_pt2str(info->ret, buf);
+	else
+		ft_pt2str(buf, info->ret);
+	return (ft_strlen(buf) + ft_strlen(info->ret));
+}
  

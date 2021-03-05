@@ -35,6 +35,8 @@ int main()
 	ft_printf("-->|%-4.*d|<--\n", -4, -135);
 	printf("%d\n",printf("%-16s\n", "nark nark"));
 	ft_printf("%d\n",ft_printf("%-16s\n", "nark nark"));
+	printf("%u\n" , 21);
+	ft_printf("%u\n" ,4294967295);
 //	printf("l : %d\n",printf("%s",NULL));
 //	printf("len : %d\n",ft_strlen(NULL));
 //	ft_printf("[%s]\n",NULL);

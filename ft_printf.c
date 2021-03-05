@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+#include <stdio.h> //지우는 거 잊지말아ㅏㄹ
 
 int		print_info(t_info *info, va_list ap)
 {
@@ -19,15 +19,17 @@ int		print_info(t_info *info, va_list ap)
 		return (pt_c(ap, info));
 	if (info->spec == 's')
 		return (pt_string(ap, info));
-	if (info->spec == 'd')
+	if (info->spec == 'd' || info->spec == 'i')
 	{
 		info->int_d = va_arg(ap, int);
 		return (info->int_d >= 0 ? pt_plusd(info) : pt_minusd(info));
 	}
-/*	if (info->spec == 'i')
-
 	if (info->spec == 'u')
-
+	{
+		info->int_d = va_arg(ap, int);
+		return (pt_u(info));
+	}
+/*
 	if (info->spec == 'p')
 
 	if (info->spec == 'x')

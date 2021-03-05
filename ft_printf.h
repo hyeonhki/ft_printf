@@ -33,7 +33,8 @@ typedef struct	s_info
 	int			precise;
 	int			spec;
 	int			i; // 어쩔수가 없다..
-	int			int_d;
+	long long 	int_d;
+	int			int_u;
 	int			minus_d;
 	int			len;
 	int			cnt;
@@ -50,6 +51,7 @@ int				pt_string(va_list ap, t_info *info);
 int				pt_d(va_list ap, t_info *info);
 int				pt_plusd(t_info *info);
 int				pt_minusd(t_info *info);
+int				pt_u(t_info *info);
 
 char			*ft_strndup(const char *src, int n);
 char			*ft_dup_options(char *str, char *type, int *index);
