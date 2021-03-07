@@ -40,7 +40,11 @@ void	test(char **buf)
 
 int main()
 {
-	char *buf;
+	int a;
+	int *b;
+	b = &a;
+	printf("%p",b);
+/*	char *buf;
 	int i;
 	i = 0;
 
@@ -52,6 +56,7 @@ int main()
 	}
 	buf[3] = '\0';
 	printf("%s\n",buf);
+*/
 //	printTEST("abcde\n", 123, 456);
 //	char *a;
 //	a = "abcdefgh";

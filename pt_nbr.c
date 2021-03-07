@@ -112,4 +112,9 @@ int		pt_u(t_info *info)
 		ft_pt2str(buf, info->ret);
 	return (ft_strlen(buf) + ft_strlen(info->ret));
 }
+
+int		pt_p(va_list ap, t_info *info)
+{
+	
+}
  
