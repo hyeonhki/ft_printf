@@ -36,9 +36,9 @@ int main()
 //	printf("%d\n",printf("%-16s\n", "nark nark"));
 //	ft_printf("%d\n",ft_printf("%-16s\n", "nark nark"));
 //	printf("%u\n" , 21);
-	printf("%5%\n");
-	printf("%-5%\n");
-	printf("%05%\n");
+	char *test = "%123";
+	printf("[%9.2p]\n",1234);
+	ft_printf("[%p]\n",1234);
 //	ft_printf("%u\n" ,4294967295);
 //	printf("l : %d\n",printf("%s",NULL));
 //	printf("len : %d\n",ft_strlen(NULL));

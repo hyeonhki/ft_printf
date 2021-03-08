@@ -31,6 +31,8 @@ int		print_info(t_info *info, va_list ap)
 	}
 	if (info->spec == 'p')
 		return (pt_p(ap, info));
+	if (info->spec == '%')
+		return (pt_buf(info));
 /*
 	if (info->spec == 'x')
 	if (info->spec == 'X')
@@ -47,8 +49,8 @@ int		case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
 
 	temp = *str;
 	i = 0;
-	box = ft_dup_options(temp, SPECIFIER, &i); //case에는 % 이후부터 서식지정자까지 담긴다. i는 인덱스값
-	*str += i;
+	box = ft_dup_options(temp + 1, SPECIFIER, &i); //case에는 % 이후부터 서식지정자까지 담긴다. i는 인덱스값
+	*str += i + 2;
 	if (!(info = malloc(sizeof(t_info) * 1)))
 		return (0);
 	info_init(info); //구조체 초기화

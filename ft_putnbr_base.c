@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void		recursive_base(unsigned long nbr, char *base, char **ret)
+void		recursive_base(unsigned long nbr, char *base, char **ret, int i)
 {
 	int		base_num;
 	int		prt;
@@ -20,11 +20,9 @@ void		recursive_base(unsigned long nbr, char *base, char **ret)
 	base_num = ft_strlen(base);
 	if (nbr == 0)
 		return ;
-	recursive_base(nbr / base_num, base, ret);
+	recursive_base(nbr / base_num, base, ret, i);
 	prt = nbr % base_num;
-	**ret = base[prt];
-	(*ret)++;
-	write(1, &base[prt], 1);
+	**(ret + i) = base[prt];
 }
 
 int		nbrlen(unsigned long nbr, char *base)
@@ -58,6 +56,7 @@ char	*ft_putnbr_base(unsigned long nbr, char *base)
 		ret[0] = *base;
 		ret[1] = '\0';
 	}
-	recursive_base(temp_nbr, base, &ret);
+	else
+		recursive_base(temp_nbr, base, &ret, 0);
 	return (ret);
 }

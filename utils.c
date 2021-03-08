@@ -154,15 +154,15 @@ char	*ft_dup_options(char *str, char *type, int *index)
 	char			*ret;
 
 	i = 0;
-	while (str[i])
+	while (str[i]) //%이후가 들어왔음
 	{
 		j = 0;
 		while (type[j])
 		{
 			if (str[i] == type[j])
 			{
-				*index += i + 1;
-				if (!(ret = ft_strndup((str + 1), i - 1)))
+				*index += i;
+				if (!(ret = ft_strndup(str, i)))
 					return (0);
 				return (ret);
 			}

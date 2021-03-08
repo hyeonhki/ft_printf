@@ -121,7 +121,7 @@ int		pt_p(va_list ap, t_info *info)
 	if (p == 0 && info->precise == 0)
 		info->ret = "";
 	else
-		info->ret = ft_putnbr_base(p, "012345679abcdef");
+		info->ret = ft_putnbr_base(p, "0123456789abcdef");
 	info->len = ft_strlen(info->ret);
 	if (info->precise > info->len)
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
@@ -133,5 +133,20 @@ int		pt_p(va_list ap, t_info *info)
 	else
 		ft_pt2str(info->buf, info->ret);
 	return (ft_strlen(info->buf) + ft_strlen(info->ret));
+}
+
+int		pt_buf(t_info *info)
+{
+	info->ret = "%";
+	info->buf = (char *)malloc(info->width - 1);
+	if (info->f_minus == 0 && info->f_zero == 1)
+		ft_bewhat(info->buf, info->width - 1, '0');
+	else
+		ft_bewhat(info->buf, info->width - 1, ' ');
+	if (info->f_minus == 1)
+		ft_pt2str(info->ret, info->buf);
+	else
+		ft_pt2str(info->buf, info->ret);
+	return (ft_strlen(info->buf) + 1);
 }
  
