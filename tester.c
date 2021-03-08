@@ -43,7 +43,10 @@ int main()
 	int a;
 	int *b;
 	b = &a;
-	printf("%p",b);
+	unsigned long long z = (void *)1234;
+	printf("%d\n",z);
+	printf("%2.9p\n", 1234);
+	printf("%p\n",1234);
 /*	char *buf;
 	int i;
 	i = 0;

@@ -115,6 +115,23 @@ int		pt_u(t_info *info)
 
 int		pt_p(va_list ap, t_info *info)
 {
-	
+	unsigned long	p;
+
+	p = (unsigned long)va_arg(ap, void *);
+	if (p == 0 && info->precise == 0)
+		info->ret = "";
+	else
+		info->ret = ft_putnbr_base(p, "012345679abcdef");
+	info->len = ft_strlen(info->ret);
+	if (info->precise > info->len)
+		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
+	info->ret = ft_strjoin("0x", info->ret);
+	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
+	ft_bewhat(info->buf, info->width - ft_strlen(info->ret), ' ');
+	if (info->f_minus == 1)
+		ft_pt2str(info->ret, info->buf);
+	else
+		ft_pt2str(info->buf, info->ret);
+	return (ft_strlen(info->buf) + ft_strlen(info->ret));
 }
  
