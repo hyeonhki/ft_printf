@@ -39,6 +39,7 @@ void	ft_bewhat(void *ptr, int size, int what)
 		*((char *)ptr + i) = what;
 		i++;
 	}
+	*((char *)ptr + i) = '\0';
 }
 
 char	*ft_bufwhat(int size, int what)
@@ -53,6 +54,7 @@ char	*ft_bufwhat(int size, int what)
 		*(temp + i) = what;
 		i++;
 	}
+	*(temp + i) = '\0';
 	return (temp);
 }
 

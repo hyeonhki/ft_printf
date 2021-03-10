@@ -33,10 +33,10 @@ int		print_info(t_info *info, va_list ap)
 		return (pt_p(ap, info));
 	if (info->spec == '%')
 		return (pt_buf(info));
-/*
 	if (info->spec == 'x')
+		return (pt_x(ap, info));
 	if (info->spec == 'X')
-*/
+		return (pt_X(ap, info));
 	return (0);
 }
 

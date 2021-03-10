@@ -44,7 +44,7 @@ int		pt_c(va_list ap, t_info *info)
 	i = 0;
 	if (info->width == 0)
 		info->width = 1;
-	if (!(buf = (char *)malloc(info->width)))
+	if (!(buf = (char *)malloc(info->width + 1 - 1)))
 		return (0);
 	ft_bewhat(buf, info->width - 1, ' ');
 	if (info->f_minus == 1)

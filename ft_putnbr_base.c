@@ -20,9 +20,9 @@ void		recursive_base(unsigned long nbr, char *base, char **ret, int i)
 	base_num = ft_strlen(base);
 	if (nbr == 0)
 		return ;
-	recursive_base(nbr / base_num, base, ret, i);
+	recursive_base(nbr / base_num, base, ret, --i);
 	prt = nbr % base_num;
-	**(ret + i) = base[prt];
+	*(*ret + i) = *(base + prt);
 }
 
 int		nbrlen(unsigned long nbr, char *base)
@@ -42,21 +42,22 @@ int		nbrlen(unsigned long nbr, char *base)
 	return (cnt);
 }
 
-char	*ft_putnbr_base(unsigned long nbr, char *base)
+char	**ft_putnbr_base(unsigned long nbr, char *base)
 {
 	unsigned long	temp_nbr;
 	int				cnt;
-	char			*ret;
+	char			**ret;
 
 	cnt = 0;
 	temp_nbr = nbr;
-	ret = (char *)malloc(nbrlen(nbr, base) + 1);
+	ret = (char **)malloc(1);
+	*ret = (char *)malloc(nbrlen(nbr, base) + 1);
 	if (temp_nbr == 0)
-	{
-		ret[0] = *base;
-		ret[1] = '\0';
+	{	
+		**ret = '0';
+		*(*ret + 1) = '\0';
 	}
 	else
-		recursive_base(temp_nbr, base, &ret, 0);
+		recursive_base(temp_nbr, base, ret, nbrlen(nbr, base));
 	return (ret);
 }

@@ -55,6 +55,8 @@ int				pt_minusd(t_info *info);
 int				pt_u(t_info *info);
 int				pt_p(va_list ap, t_info *info);
 int				pt_buf(t_info *info);
+int				pt_x(va_list ap, t_info *info);
+int				pt_X(va_list ap, t_info *info);
 
 char			*ft_strndup(const char *src, int n);
 char			*ft_dup_options(char *str, char *type, int *index);
@@ -65,7 +67,7 @@ void			ft_ptstr(char *str);
 char			*ft_bufwhat(int size, int what);
 void			ft_pt2str(char *s1, char *s2);
 void			ft_mvminus(char **str, int d);
-char			*ft_putnbr_base(unsigned long nbr, char *base);
+char			**ft_putnbr_base(unsigned long nbr, char *base);
 
 void			info_init(t_info *info);
 void			save_info(t_info *info, char *str, va_list ap);

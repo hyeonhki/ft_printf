@@ -116,18 +116,72 @@ int		pt_u(t_info *info)
 int		pt_p(va_list ap, t_info *info)
 {
 	unsigned long	p;
+	void			*temp;
 
-	p = (unsigned long)va_arg(ap, void *);
-	if (p == 0 && info->precise == 0)
+	if ((temp = va_arg(ap, void *)) == NULL)
+		p = 0;
+	else
+		p = (unsigned long)temp;
+	if (p == 0 && info->precise != -1)
 		info->ret = "";
 	else
-		info->ret = ft_putnbr_base(p, "0123456789abcdef");
+		info->ret = *ft_putnbr_base(p, "0123456789abcdef");
 	info->len = ft_strlen(info->ret);
 	if (info->precise > info->len)
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
 	info->ret = ft_strjoin("0x", info->ret);
 	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
 	ft_bewhat(info->buf, info->width - ft_strlen(info->ret), ' ');
+	if (info->f_minus == 1)
+		ft_pt2str(info->ret, info->buf);
+	else
+		ft_pt2str(info->buf, info->ret);
+	return (ft_strlen(info->buf) + ft_strlen(info->ret));
+}
+
+int		pt_x(va_list ap, t_info *info)
+{
+	unsigned int	x;
+
+	x = va_arg(ap, int);
+	if (x == 0 && info->precise == 0)
+		info->ret = "";
+	else
+		info->ret = *ft_putnbr_base(x, "0123456789abcdef");
+	info->len = ft_strlen(info->ret);
+	if (info->precise > info->len)
+		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
+	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
+	info->len = ft_strlen(info->ret);
+	if (info->precise == -1 && info->f_zero == 1)
+		ft_bewhat(info->buf, info->width - info->len, '0');
+	else
+		ft_bewhat(info->buf, info->width - info->len, ' ');
+	if (info->f_minus == 1)
+		ft_pt2str(info->ret, info->buf);
+	else
+		ft_pt2str(info->buf, info->ret);
+	return (ft_strlen(info->buf) + ft_strlen(info->ret));
+}
+
+int		pt_X(va_list ap, t_info *info)
+{
+	unsigned int	X;
+
+	X = va_arg(ap, int);
+	if (X == 0 && info->precise == 0)
+		info->ret = "";
+	else
+		info->ret = *ft_putnbr_base(X, "0123456789ABCDEF");
+	info->len = ft_strlen(info->ret);
+	if (info->precise > info->len)
+		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
+	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
+	info->len = ft_strlen(info->ret);
+	if (info->precise == -1 && info->f_zero == 1)
+		ft_bewhat(info->buf, info->width - info->len, '0');
+	else
+		ft_bewhat(info->buf, info->width - info->len, ' ');
 	if (info->f_minus == 1)
 		ft_pt2str(info->ret, info->buf);
 	else

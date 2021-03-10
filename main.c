@@ -38,7 +38,10 @@ int main()
 //	printf("%u\n" , 21);
 	char *test = "%123";
 	printf("[%9.2p]\n",1234);
-	ft_printf("[%p]\n",1234);
+	unsigned long p = (unsigned long)NULL;
+	printf("%lu\n",p);
+	printf("%s",*ft_putnbr_base(0,"0123456789abcdef"));
+//	ft_printf("[%p]\n",1234);
 //	ft_printf("%u\n" ,4294967295);
 //	printf("l : %d\n",printf("%s",NULL));
 //	printf("len : %d\n",ft_strlen(NULL));
