@@ -67,13 +67,15 @@ int		pt_minusd(t_info *info)
 	char	*buf;
 
 	//itoa는 양수만로 변환해서 넣어준다
-	info->ret = ft_itoa(-(info->int_d));
+	info->ret = ft_itoa(-1 * (info->int_d));
+	printf("%s\n",info->ret);
 	if ((info->precise > (info->len = (int)ft_strlen(info->ret))))
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
 	info->len = ft_strlen(info->ret);
 	buf = (char *)malloc(info->width - info->len);
 	if (info->precise == -1 && info->f_zero == 1)
 	{
+		printf("check");
 		ft_bewhat(buf, info->width - 1 - info->len, '0');
 		ft_pt2str(buf = ft_strjoin("-", buf), info->ret);
 	}

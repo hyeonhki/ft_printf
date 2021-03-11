@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include "ft_printf.h"
 #include <string.h>
+#include <limits.h>
 
 int main()
 { 
@@ -26,6 +27,14 @@ int main()
 //	printf("%d\n",ft_atoi("1234567d"));
 //	printf("printf : %*10c\n",5,'a');
 	setbuf(stdout, NULL);
+	printf("[%05d]\n",-135);
+	ft_printf("[%05d]\n",-135);
+//	printf("%");//warning
+//	printf("%5");//warning
+//	printf("%09s\n", "hi low");//warning
+//	printf("%-d\n",INT_MIN);//warining
+//	ft_printf("%d\n",INT_MIN);
+//	printf("%i", -2147483648);//warning
 //	printf("printf : %0c\n", 10, 'a');
 //	int a;
 //	a = printf("%*c",-5,'a');
@@ -36,11 +45,11 @@ int main()
 //	printf("%d\n",printf("%-16s\n", "nark nark"));
 //	ft_printf("%d\n",ft_printf("%-16s\n", "nark nark"));
 //	printf("%u\n" , 21);
-	char *test = "%123";
-	printf("[%9.2p]\n",1234);
-	unsigned long p = (unsigned long)NULL;
-	printf("%lu\n",p);
-	printf("%s",*ft_putnbr_base(0,"0123456789abcdef"));
+//	char *test = "%123";
+//	printf("[%9.2p]\n",1234);
+//	unsigned long p = (unsigned long)NULL;
+//	printf("%lu\n",p);
+//	printf("%s",*ft_putnbr_base(0,"0123456789abcdef"));
 //	ft_printf("[%p]\n",1234);
 //	ft_printf("%u\n" ,4294967295);
 //	printf("l : %d\n",printf("%s",NULL));

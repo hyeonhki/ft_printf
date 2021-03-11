@@ -49,7 +49,7 @@ void	u_nbrtostr(char *str, unsigned int n, int len)
 	}
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(unsigned int n)
 {
 	char			*temp;
 	int				len;
