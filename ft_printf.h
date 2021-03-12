@@ -42,6 +42,8 @@ typedef struct	s_info
 	char		*str;
 	char		*buf;
 	char		*prec;
+	int			pre_size;
+	int			buf_len;
 }				t_info;
 
 void			pt_char(int a);

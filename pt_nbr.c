@@ -51,7 +51,7 @@ int		pt_plusd(t_info *info)
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
 	info->len = ft_strlen(info->ret);
 	buf = (char *)malloc(info->width - info->len);
-	if (info->precise == -1 && info->f_zero == 1)
+	if (info->precise < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(buf, info->width - info->len, '0');
 	else
 		ft_bewhat(buf, info->width - info->len, ' ');
@@ -66,16 +66,17 @@ int		pt_minusd(t_info *info)
 {
 	char	*buf;
 
-	//itoa는 양수만로 변환해서 넣어준다
 	info->ret = ft_itoa(-1 * (info->int_d));
-	printf("%s\n",info->ret);
 	if ((info->precise > (info->len = (int)ft_strlen(info->ret))))
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
 	info->len = ft_strlen(info->ret);
-	buf = (char *)malloc(info->width - info->len);
-	if (info->precise == -1 && info->f_zero == 1)
+	if (info->width - info->len < 0)
+		info->buf_len = 1;
+	buf = (char *)malloc(info->buf_len);
+//	buf = (char *)malloc(info->width - info->len);
+//	if (info->precise == -1 && info->f_zero == 1 && info->pre_size == 0)
+	if (info->precise < 0 && info->f_zero == 1 && info->f_minus == 0)
 	{
-		printf("check");
 		ft_bewhat(buf, info->width - 1 - info->len, '0');
 		ft_pt2str(buf = ft_strjoin("-", buf), info->ret);
 	}
@@ -104,7 +105,7 @@ int		pt_u(t_info *info)
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
 	info->len = ft_strlen(info->ret);
 	buf = (char *)malloc(info->width - info->len);
-	if (info->precise == -1 && info->f_zero == 1)
+	if (info->precise < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(buf, info->width - info->len, '0');
 	else
 		ft_bewhat(buf, info->width - info->len, ' ');
@@ -155,7 +156,7 @@ int		pt_x(va_list ap, t_info *info)
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
 	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
 	info->len = ft_strlen(info->ret);
-	if (info->precise == -1 && info->f_zero == 1)
+	if (info->precise < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(info->buf, info->width - info->len, '0');
 	else
 		ft_bewhat(info->buf, info->width - info->len, ' ');
@@ -180,7 +181,7 @@ int		pt_X(va_list ap, t_info *info)
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
 	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
 	info->len = ft_strlen(info->ret);
-	if (info->precise == -1 && info->f_zero == 1)
+	if (info->precise < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(info->buf, info->width - info->len, '0');
 	else
 		ft_bewhat(info->buf, info->width - info->len, ' ');

@@ -27,8 +27,14 @@ int main()
 //	printf("%d\n",ft_atoi("1234567d"));
 //	printf("printf : %*10c\n",5,'a');
 	setbuf(stdout, NULL);
-	printf("[%05d]\n",-135);
-	ft_printf("[%05d]\n",-135);
+//	printf("[%0.*d]\n", -1, -135);
+//	ft_printf("[%0.*d]\n", -1, -135);
+//	printf("[%0d]\n", -135);
+//	ft_printf("[%0d]\n", -135);
+	printf("[%0*.*d]\n", -4, -4, -12);
+	ft_printf("[%0*.*d]\n", -4, -4, -12);
+	printf("[%0*d]\n",-4,198);
+	ft_printf("[%0*d]\n",-4,198);
 //	printf("%");//warning
 //	printf("%5");//warning
 //	printf("%09s\n", "hi low");//warning

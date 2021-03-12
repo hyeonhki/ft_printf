@@ -31,15 +31,18 @@ void	ft_bewhat(void *ptr, int size, int what)
 {
 	int i;
 
-	if (size < 0)
-		return ;
 	i = 0;
-	while (i < size)
+	if (size < 0)
+		return ;	
+	else
 	{
-		*((char *)ptr + i) = what;
-		i++;
+		while (i < size)
+		{
+			*((char *)ptr + i) = what;
+			i++;
+		}
+		*((char *)ptr + i) = '\0';
 	}
-	*((char *)ptr + i) = '\0';
 }
 
 char	*ft_bufwhat(int size, int what)

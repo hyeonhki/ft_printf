@@ -20,11 +20,13 @@ void	info_init(t_info *info)
 	info->f_size = 0;
 	info->width = 0;
 	info->precise = -1;
+//	info->precise = 0;
 	info->spec = 0;
 	info->i = 0;
 	info->int_d = 0;
 	info->minus_d = 0;
 	info->len = 0;
+	info->pre_size = 0;
 }
 
 // * 로 가변인자를 받는 경우, 그 자리에서 해당되는 값만 허용된다.
@@ -51,6 +53,7 @@ void	save_info(t_info *info, char *str, va_list ap)
 	//.이 있으면서 일반숫자가 나오는경우
 	if (str[info->i] == '.' && str[info->i + 1] == '*')
 	{
+		info->pre_size = 1;
 		info->precise = va_arg(ap, int);
 		info->i += 2;
 	}
