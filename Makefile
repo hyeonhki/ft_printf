@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyeonhki <hyeonhki@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/15 13:38:25 by hyeonhki          #+#    #+#              #
-#    Updated: 2021/02/15 13:38:27 by hyeonhki         ###   ########.fr        #
+#    Updated: 2021/03/14 17:04:01 by hyeonhki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = ./ft_printf.c ./utils.c\
 		./info.c ./pt_char.c ./pt_nbr.c ./ft_putnbr_base.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror -c -g
 
 all: $(NAME)
 

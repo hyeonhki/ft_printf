@@ -6,7 +6,7 @@
 /*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:47:59 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/22 17:05:12 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:57:39 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string.h>
 #include <limits.h>
 
-int main()
+int main2()
 { 
 	//printf("경우 1: %d"); //서식지정자가 있지만, 인자가 없는 경우
 	// warning > 쓰레기값
@@ -31,10 +31,10 @@ int main()
 //	ft_printf("[%0.*d]\n", -1, -135);
 //	printf("[%0d]\n", -135);
 //	ft_printf("[%0d]\n", -135);
-	printf("[%0*.*d]\n", -4, -4, -12);
-	ft_printf("[%0*.*d]\n", -4, -4, -12);
-	printf("[%0*d]\n",-4,198);
-	ft_printf("[%0*d]\n",-4,198);
+//	printf("[%0*.*d]\n", -4, -4, -12);
+//	ft_printf("[%0*.*d]\n", -4, -4, -12);
+//	printf("[%0*d]\n",-4,198);
+//	ft_printf("[%0*d]\n",-4,198);
 //	printf("%");//warning
 //	printf("%5");//warning
 //	printf("%09s\n", "hi low");//warning
@@ -62,7 +62,12 @@ int main()
 //	printf("len : %d\n",ft_strlen(NULL));
 //	ft_printf("[%s]\n",NULL);
 //	printf("%s",ft_strdup(NULL));
-	
+//	printf("%d\n", INT_MIN);
+	printf("%04d\n", -4825);
+	ft_printf("%04d\n", -4825);
+//	ft_printf("%d\n", INT_MIN);
+//	printf("%.*p\n",-3, 0);
+//	ft_printf("%.*p\n",-3, 0);
 //	printf("[-4.*d]\n",-4,-135);
 //	ft_printf("[-4.*d]\n",-4,-135);
 //	int b = 0;
@@ -81,9 +86,18 @@ int main()
 	// % 하나 출력, 뒤에 뭐없으면 출력 X
 
 
-
 //	printf("test\n");
 //	printf(" %d abcdfefe\n",123);
 //	ft_printf("test\n");
 	//ft_printf("test");
+}
+
+int main(void)
+{
+
+	printf("%0-3.7d\n", -2375);
+	ft_printf("%0-3.7d\n", -2375);
+
+
+	return (0);
 }

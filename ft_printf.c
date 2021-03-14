@@ -6,19 +6,18 @@
 /*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:20:16 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/22 17:07:59 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:16:59 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h> //지우는 거 잊지말아라
 
 int		print_info(t_info *info, va_list ap)
 {
 	if (info->spec == 'c')
 		return (pt_c(ap, info));
 	if (info->spec == 's')
-		return (pt_string(ap, info));
+		return (pt_s(ap, info));
 	if (info->spec == 'd' || info->spec == 'i')
 	{
 		info->int_d = va_arg(ap, int);
@@ -40,22 +39,25 @@ int		print_info(t_info *info, va_list ap)
 	return (0);
 }
 
-int		case_print(char **str, va_list ap) //문자열 저장 후 주소 이동
+int		case_print(char **str, va_list ap)
 {
 	char			*temp;
 	int				i;
 	char			*box;
+	int				ret;
 	t_info			*info;
 
 	temp = *str;
 	i = 0;
 	box = ft_dup_options(temp + 1, SPECIFIER, &i); //case에는 % 이후부터 서식지정자까지 담긴다. i는 인덱스값
 	*str += i + 2;
-	if (!(info = malloc(sizeof(t_info) * 1)))
+	if (!(info = malloc(sizeof(t_info) * 1))) //동적할당 해제는 어디..
 		return (0);
-	info_init(info); //구조체 초기화
-	save_info(info, box, ap); //구조체 기록
-	return (print_info(info, ap)); //구조체 확인 및 출력
+	info_init(info);
+	save_info(info, box, ap);
+	ret = print_info(info, ap);
+	free(info);
+	return (ret);
 }
 
 int		t_operator(char *input, va_list ap)
@@ -72,7 +74,6 @@ int		t_operator(char *input, va_list ap)
 			pt_double(&input, &ret);
 			continue ;
 		}
-		// 여기까진 return 값 동작
 		if (*input)
 			ret += case_print(&input, ap);
 	}

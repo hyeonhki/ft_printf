@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeonhki <hyeonhki@stduent.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 11:48:19 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/08 16:16:53 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/03/14 12:44:22 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int					ft_putchar(char c);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-int					ft_numlen(int n);
+int					ft_numlen(unsigned int n);
 char				*ft_strcat(char *s1, const char *s2);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);

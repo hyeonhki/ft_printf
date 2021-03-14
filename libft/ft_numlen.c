@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_numlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeonhki <hyeonhki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 19:25:46 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/01/02 19:26:40 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/03/14 12:46:23 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_numlen(int n)
+int	ft_numlen(unsigned int n)
 {
 	int cnt;
 
 	cnt = 0;
+/*
 	if (n < 0)
 	{
 		cnt += 1;
@@ -23,6 +24,7 @@ int	ft_numlen(int n)
 		else
 			n *= -1;
 	}
+*/
 	if (n >= 0 && n <= 9)
 	{
 		cnt += 1;

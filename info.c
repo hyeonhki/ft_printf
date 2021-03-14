@@ -6,7 +6,7 @@
 /*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 16:06:10 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/02/22 17:04:03 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:05:30 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	info_init(t_info *info)
 	info->f_space = ' ';
 	info->f_size = 0;
 	info->width = 0;
-	info->precise = -1;
-//	info->precise = 0;
+	info->prec = -1; // precise가 음수로 들어와도 처리 X
 	info->spec = 0;
 	info->i = 0;
 	info->int_d = 0;
@@ -50,15 +49,14 @@ void	save_info(t_info *info, char *str, va_list ap)
 		info->width = ft_atoi(str + (info->i));
 	while (str[info->i] >= '0' && str[info->i] <= '9')
 		(info->i)++;
-	//.이 있으면서 일반숫자가 나오는경우
 	if (str[info->i] == '.' && str[info->i + 1] == '*')
 	{
 		info->pre_size = 1;
-		info->precise = va_arg(ap, int);
+		info->prec = va_arg(ap, int);
 		info->i += 2;
 	}
 	else if (str[info->i] == '.')
-		info->precise = ft_atoi(&str[++(info->i)]); //빈문자열 atoi는 0나오는디;
+		info->prec = ft_atoi(&str[++(info->i)]); //빈문자열 atoi는 0나오는디;
 	while (str[info->i] >= '0' && str[info->i] <= '9')
 		(info->i)++;
 	info->spec = str[info->i];

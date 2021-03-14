@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeonhki <hyeonhki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeonhki <hyeonhki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 19:22:16 by hyeonhki          #+#    #+#             */
-/*   Updated: 2021/01/02 19:26:24 by hyeonhki         ###   ########.fr       */
+/*   Updated: 2021/03/14 12:45:34 by hyeonhki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-void	nbrtostr(char *str, int n, int len)
+void	nbrtostr(char *str, unsigned int n, int len)
 {
 	int				p;
-	long long		n1;
+	unsigned int	n1;
 
 	n1 = n;
 	p = 0;
