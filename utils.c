@@ -23,17 +23,18 @@ void	ft_mvminus(char **str, int d)
 	{
 		if ((*str)[i] == '-')
 			(*str)[i] = '0';
-		i++;	
+		i++;
 	}
 	**str = '-';
 }
+
 void	ft_bewhat(void *ptr, int size, int what)
 {
 	int i;
 
 	i = 0;
 	if (size < 0)
-		return ;	
+		return ;
 	else
 	{
 		while (i < size)
@@ -84,7 +85,7 @@ void	ft_check_flag(char **str, t_info *info)
 			(*str)++;
 			continue;
 		}
-		break;
+		break ;
 	}
 }
 
@@ -117,7 +118,7 @@ void	ft_pt2str(char *s1, char *s2)
 {
 	if (s1 != 0)
 	{
-		while(*s1)
+		while (*s1)
 		{
 			pt_char(*s1);
 			s1++;
@@ -125,7 +126,7 @@ void	ft_pt2str(char *s1, char *s2)
 	}
 	if (s2 != 0)
 	{
-		while(*s2)
+		while (*s2)
 		{
 			pt_char(*s2);
 			s2++;

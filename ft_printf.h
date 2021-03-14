@@ -19,13 +19,13 @@
 # include "./libft/libft.h"
 
 # define FLAG "0-*"
-# define SPECIFIER "csdiupxX%" //u,xX, 1. di(-) 2. p(0x) 3. cs -> 2.22 !
+# define SPECIFIER "csdiupxX%"//u,xX, 1. di(-) 2. p(0x) 3. cs -> 2.22 !
 //c 
 //s width flag
 
 typedef struct	s_info
 {
-	int 		f_minus;
+	int			f_minus;
 	int			f_zero;
 	int			f_space;
 	int			f_size;
@@ -33,7 +33,7 @@ typedef struct	s_info
 	int			precise;
 	int			spec;
 	int			i; // 어쩔수가 없다..
-	long long 	int_d;
+	long long	int_d;
 	int			int_u;
 	int			minus_d;
 	int			len;
@@ -58,7 +58,7 @@ int				pt_u(t_info *info);
 int				pt_p(va_list ap, t_info *info);
 int				pt_buf(t_info *info);
 int				pt_x(va_list ap, t_info *info);
-int				pt_X(va_list ap, t_info *info);
+int				pt_bigx(va_list ap, t_info *info);
 
 char			*ft_strndup(const char *src, int n);
 char			*ft_dup_options(char *str, char *type, int *index);

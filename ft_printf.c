@@ -36,7 +36,7 @@ int		print_info(t_info *info, va_list ap)
 	if (info->spec == 'x')
 		return (pt_x(ap, info));
 	if (info->spec == 'X')
-		return (pt_X(ap, info));
+		return (pt_bigx(ap, info));
 	return (0);
 }
 

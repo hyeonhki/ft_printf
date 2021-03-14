@@ -25,7 +25,7 @@ int		pt_d(va_list ap, t_info *info)
 	info->ret = ft_itoa(info->int_d);
 	if (info->precise > (int)ft_strlen(info->ret))
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
-	ft_mvminus(&info->ret, info->int_d);		
+	ft_mvminus(&info->ret, info->int_d);
 	info->len = ft_strlen(info->ret);
 	buf = (char *)malloc(info->width - info->len);
 	if (info->precise == -1 && info->f_zero == 1)
@@ -48,7 +48,7 @@ int		pt_plusd(t_info *info)
 	else
 		info->ret = ft_itoa(info->int_d);
 	if (info->precise > (info->len = (int)ft_strlen(info->ret)))
-		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
+		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);//글자수 초과
 	info->len = ft_strlen(info->ret);
 	buf = (char *)malloc(info->width - info->len);
 	if (info->precise < 0 && info->f_zero == 1 && info->f_minus == 0)
@@ -62,13 +62,13 @@ int		pt_plusd(t_info *info)
 	return (ft_strlen(buf) + ft_strlen(info->ret));
 }
 
-int		pt_minusd(t_info *info)
+int		pt_minusd(t_info *info) //함수 27줄
 {
 	char	*buf;
 
 	info->ret = ft_itoa(-1 * (info->int_d));
 	if ((info->precise > (info->len = (int)ft_strlen(info->ret))))
-		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
+		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret); //글자수 초과
 	info->len = ft_strlen(info->ret);
 	if (info->width - info->len < 0)
 		info->buf_len = 1;
@@ -80,7 +80,7 @@ int		pt_minusd(t_info *info)
 		ft_bewhat(buf, info->width - 1 - info->len, '0');
 		ft_pt2str(buf = ft_strjoin("-", buf), info->ret);
 	}
-	else if (info-> f_minus == 1)
+	else if (info->f_minus == 1)
 	{
 		ft_bewhat(buf, info->width - 1 - info->len, ' ');
 		ft_pt2str(info->ret = ft_strjoin("-", info->ret), buf);
@@ -102,7 +102,7 @@ int		pt_u(t_info *info)
 	else
 		info->ret = ft_u_itoa(info->int_d);
 	if (info->precise > (info->len = (int)ft_strlen(info->ret)))
-		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);
+		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);//글자수 초과
 	info->len = ft_strlen(info->ret);
 	buf = (char *)malloc(info->width - info->len);
 	if (info->precise < 0 && info->f_zero == 1 && info->f_minus == 0)
@@ -167,15 +167,15 @@ int		pt_x(va_list ap, t_info *info)
 	return (ft_strlen(info->buf) + ft_strlen(info->ret));
 }
 
-int		pt_X(va_list ap, t_info *info)
+int		pt_bigx(va_list ap, t_info *info)
 {
-	unsigned int	X;
+	unsigned int	x;
 
-	X = va_arg(ap, int);
-	if (X == 0 && info->precise == 0)
+	x = va_arg(ap, int);
+	if (x == 0 && info->precise == 0)
 		info->ret = "";
 	else
-		info->ret = *ft_putnbr_base(X, "0123456789ABCDEF");
+		info->ret = *ft_putnbr_base(x, "0123456789ABCDEF");
 	info->len = ft_strlen(info->ret);
 	if (info->precise > info->len)
 		info->ret = ft_strjoin(ft_bufwhat(info->precise - info->len, '0'), info->ret);

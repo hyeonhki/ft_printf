@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void pt_char(int a)
+void	pt_char(int a)
 {
 	write(1, &a, 1);
 }

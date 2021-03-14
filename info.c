@@ -63,34 +63,3 @@ void	save_info(t_info *info, char *str, va_list ap)
 		(info->i)++;
 	info->spec = str[info->i];
 }
-
-/*
-void	save_info(t_info *info, char *str, va_list ap)
-{
-	int			i;
-
-	i = 0;
-	ft_check_flag(&str, info);
-	if (info->f_size == 1)
-	{
-		info->width = va_arg(ap, int);
-		// width 에서 들어오는 - 플래그를 해결
-		if (info->width < 0)
-		{
-			info->width *= -1;
-			info->f_minus = 1;
-		}
-	}
-	else if (str[i] >= '0' && str[i] <= '9')
-		info->width = ft_atoi(str + i);
-	while (str[i] >= '0' && str[i] <= '9')
-		i++;
-	if (str[i] == '.')
-	{
-		info->precise = ft_atoi(&str[++i]);
-		while (str[i] >= '0' && str[i] <= '9')
-			i++;
-	}
-	if (ft_check_init(str[i], SPECIFIER))
-		info->spec = str[i];
-}*/
