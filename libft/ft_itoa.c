@@ -60,18 +60,3 @@ char	*ft_itoa(unsigned int n)
 	nbrtostr(temp, n, len);
 	return (temp);
 }
-
-char	*ft_u_itoa(unsigned int n)
-{
-	char			*temp;
-	int				len;
-
-	if (n > 2147483647)
-		len = 10;
-	else
-		len = ft_numlen((int)n);
-	if (!(temp = (char *)malloc(len + 1)))
-		return (0);
-	u_nbrtostr(temp, n, len);
-	return (temp);
-}

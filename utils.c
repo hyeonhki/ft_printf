@@ -28,6 +28,12 @@ void	ft_mvminus(char **str, int d)
 	**str = '-';
 }
 
+void	ft_multifree(char *p1, char *p2)
+{
+	free(p1);
+	free(p2);
+}
+
 void	ft_bewhat(void *ptr, int size, int what)
 {
 	int i;
@@ -69,7 +75,6 @@ void	ft_check_flag(char **str, t_info *info)
 		if (**str == '0')
 		{
 			info->f_zero = 1;
-			info->f_space = 0;
 			(*str)++;
 			continue;
 		}

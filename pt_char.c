@@ -59,7 +59,7 @@ int		pt_c(va_list ap, t_info *info)
 	return (info->cnt);
 }
 
-void	pt_mswap(int flag, char *s1, char *s2)
+void	pt_flagswap(int flag, char *s1, char *s2)
 {
 	if (flag == 0)
 	{
@@ -83,8 +83,8 @@ int		pt_s(va_list ap, t_info *info)
 	if (info->width <= info->len)
 		info->width = info->len;
 	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
-	ft_bewhat(info->buf, info->width - ft_strlen(info->ret), info->f_space);
-	pt_mswap(info->f_minus, info->buf, info->ret);
+	ft_bewhat(info->buf, info->width - ft_strlen(info->ret), ' ');
+	pt_flagswap(info->f_minus, info->buf, info->ret);
 	info->cnt = ft_strlen(info->ret) + ft_strlen(info->buf);
 	free(info->ret);
 	free(info->buf);

@@ -15,7 +15,7 @@
 #include <string.h>
 #include <limits.h>
 
-int main2()
+int main()
 { 
 	//printf("경우 1: %d"); //서식지정자가 있지만, 인자가 없는 경우
 	// warning > 쓰레기값
@@ -27,6 +27,8 @@ int main2()
 //	printf("%d\n",ft_atoi("1234567d"));
 //	printf("printf : %*10c\n",5,'a');
 	setbuf(stdout, NULL);
+	printf("%.*p\n", -3, 0);
+	ft_printf("%3.7d\n",-2375);
 //	printf("[%0.*d]\n", -1, -135);
 //	ft_printf("[%0.*d]\n", -1, -135);
 //	printf("[%0d]\n", -135);
@@ -63,8 +65,8 @@ int main2()
 //	ft_printf("[%s]\n",NULL);
 //	printf("%s",ft_strdup(NULL));
 //	printf("%d\n", INT_MIN);
-	printf("%04d\n", -4825);
-	ft_printf("%04d\n", -4825);
+//	printf("%04d\n", -4825);
+//	ft_printf("%04d\n", -4825);
 //	ft_printf("%d\n", INT_MIN);
 //	printf("%.*p\n",-3, 0);
 //	ft_printf("%.*p\n",-3, 0);
@@ -90,14 +92,4 @@ int main2()
 //	printf(" %d abcdfefe\n",123);
 //	ft_printf("test\n");
 	//ft_printf("test");
-}
-
-int main(void)
-{
-
-	printf("%0-3.7d\n", -2375);
-	ft_printf("%0-3.7d\n", -2375);
-
-
-	return (0);
 }
