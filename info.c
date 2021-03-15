@@ -12,6 +12,43 @@
 
 #include "ft_printf.h"
 
+void	info_check_flag(char **str, t_info *info)
+{
+	while (1)
+	{
+		if (**str == '0')
+		{
+			info->f_zero = 1;
+			(*str)++;
+			continue;
+		}
+		if (**str == '-')
+		{
+			info->f_minus = 1;
+			(*str)++;
+			continue;
+		}
+		if (**str == '*')
+		{
+			info->f_size = 1;
+			(*str)++;
+			continue;
+		}
+		break ;
+	}
+}
+
+int		info_check_init(char c, const char *src)
+{
+	while (*src)
+	{
+		if (c == *src)
+			return (1);
+		src++;
+	}
+	return (0);
+}
+
 void	info_init(t_info *info)
 {
 	info->f_minus = 0;
@@ -38,7 +75,7 @@ void	info_init(t_info *info)
 // 0 < -가 우선
 void	save_info(t_info *info, char *str, va_list ap)
 {
-	ft_check_flag(&str, info);
+	info_check_flag(&str, info);
 	if (info->f_size == 1)
 		info->width = va_arg(ap, int); //width가 - 인 경우를 print 부분에서 해결해주어야한다
 	if (info->width < 0)

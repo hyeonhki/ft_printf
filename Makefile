@@ -15,7 +15,7 @@ LIBFT = libft
 LIBFT_LIB = libft.a
 
 SRCS = ./ft_printf.c ./utils.c\
-		./info.c ./pt_char.c ./pt_nbr.c ./ft_putnbr_base.c
+		./info.c ./pt_char.c ./pt_nbr.c ./pt.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -c -g

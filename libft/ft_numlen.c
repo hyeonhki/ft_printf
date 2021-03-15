@@ -15,16 +15,6 @@ int	ft_numlen(unsigned int n)
 	int cnt;
 
 	cnt = 0;
-/*
-	if (n < 0)
-	{
-		cnt += 1;
-		if (n == -2147483648)
-			return (11);
-		else
-			n *= -1;
-	}
-*/
 	if (n >= 0 && n <= 9)
 	{
 		cnt += 1;

@@ -22,3 +22,17 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
+
+void	ft_putstr(char *str)
+{
+	int i;
+
+	if (str == 0)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		write(1, str + i, 1);
+		i++;
+	}
+}

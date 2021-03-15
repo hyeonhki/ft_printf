@@ -53,6 +53,7 @@ SRCS = ft_memset.c\
 	   ft_isspace.c\
 	   ft_islower.c\
 	   ft_isupper.c\
+	   ft_putnbr_base.c
 
 SRCS_BON = ft_lstnew.c\
 		   ft_lstadd_front.c\

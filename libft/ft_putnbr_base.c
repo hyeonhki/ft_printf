@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		recursive_base(unsigned long nbr, char *base, char **ret, int i)
+void	recursive_base(unsigned long nbr, char *base, char **ret, int i)
 {
-	int				base_num;
-	int				prt;
+	int					base_num;
+	int					prt;
 
 	base_num = ft_strlen(base);
 	if (nbr == 0)
@@ -27,8 +27,8 @@ void		recursive_base(unsigned long nbr, char *base, char **ret, int i)
 
 int		nbrlen(unsigned long nbr, char *base)
 {
-	int				base_num;
-	int				cnt;
+	int					base_num;
+	int					cnt;
 
 	cnt = 0;
 	if (nbr == 0)
@@ -44,9 +44,10 @@ int		nbrlen(unsigned long nbr, char *base)
 
 char	**ft_putnbr_base(unsigned long nbr, char *base)
 {
-	unsigned long	temp_nbr;
-	int				cnt;
-	char			**ret;
+	unsigned long		temp_nbr;
+	int					cnt;
+	char				**ret;
+	char				**temp;
 
 	cnt = 0;
 	temp_nbr = nbr;
@@ -59,5 +60,7 @@ char	**ft_putnbr_base(unsigned long nbr, char *base)
 	}
 	else
 		recursive_base(temp_nbr, base, ret, nbrlen(nbr, base));
-	return (ret);
+	temp = ret;
+	free(ret);
+	return (temp);
 }
