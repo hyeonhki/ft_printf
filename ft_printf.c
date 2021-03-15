@@ -49,9 +49,9 @@ int		case_print(char **str, va_list ap)
 
 	temp = *str;
 	i = 0;
-	box = ft_dup_options(temp + 1, SPECIFIER, &i); //case에는 % 이후부터 서식지정자까지 담긴다. i는 인덱스값
+	box = ft_dup_options(temp + 1, SPECIFIER, &i);
 	*str += i + 2;
-	if (!(info = malloc(sizeof(t_info) * 1))) //동적할당 해제는 어디..
+	if (!(info = malloc(sizeof(t_info) * 1)))
 		return (0);
 	info_init(info);
 	save_info(info, box, ap);

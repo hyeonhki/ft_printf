@@ -29,7 +29,6 @@ $(NAME) : $(OBJS)
 	make all -C $(LIBFT)/
 	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
 	ar rcs $@ $(OBJS)
-#libft를 안에서 make한 후, libft.a를 복사 시키는 듯
 
 clean :
 	rm -f $(OBJS) $(OBJS_BON)

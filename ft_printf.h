@@ -15,7 +15,6 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h> //지우는 거 잊지말기
 # include "./libft/libft.h"
 
 # define SPECIFIER "csdiupxX%"
