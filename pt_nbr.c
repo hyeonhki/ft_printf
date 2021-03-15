@@ -121,7 +121,7 @@ int		pt_x(va_list ap, t_info *info)
 
 	x = va_arg(ap, int);
 	if (x == 0 && info->prec == 0)
-		info->ret = "";
+		info->ret = ft_strdup("");
 	else
 		info->ret = *ft_putnbr_base(x, "0123456789abcdef");
 	info->len = ft_strlen(info->ret);
@@ -146,7 +146,7 @@ int		pt_bigx(va_list ap, t_info *info)
 
 	x = va_arg(ap, int);
 	if (x == 0 && info->prec == 0)
-		info->ret = "";
+		info->ret = ft_strdup("");
 	else
 		info->ret = *ft_putnbr_base(x, "0123456789ABCDEF");
 	info->len = ft_strlen(info->ret);
@@ -167,7 +167,7 @@ int		pt_bigx(va_list ap, t_info *info)
 
 int		pt_buf(t_info *info)
 {
-	info->ret = "%";
+	info->ret = ft_strdup("%");
 	info->buf = (char *)malloc(info->width - 1);
 	if (info->f_minus == 0 && info->f_zero == 1)
 		ft_bewhat(info->buf, info->width - 1, '0');
@@ -175,10 +175,8 @@ int		pt_buf(t_info *info)
 		ft_bewhat(info->buf, info->width - 1, ' ');
 	pt_flagswap(info->f_minus, info->buf, info->ret);
 	info->cnt = ft_strlen(info->buf) + 1;
-//	if (info->f_minus == 1)
-//		ft_pt2str(info->ret, info->buf);
-//	else
-//		ft_pt2str(info->buf, info->ret);
-	return (ft_strlen(info->buf) + 1);
+	free(info->buf);
+	free(info->ret);
+	return (info->cnt);
 }
  
