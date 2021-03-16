@@ -50,8 +50,8 @@ char	**ft_putnbr_base(unsigned long nbr, char *base)
 
 	cnt = 0;
 	temp_nbr = nbr;
-	ret = (char **)malloc(1);
-	*ret = (char *)malloc(nbrlen(nbr, base));
+	ret = (char **)malloc((sizeof(char *)));
+	*ret = (char *)malloc(nbrlen(nbr, base) + 1);
 	if (temp_nbr == 0)
 	{
 		**ret = '0';
@@ -59,5 +59,6 @@ char	**ft_putnbr_base(unsigned long nbr, char *base)
 	}
 	else
 		recursive_base(temp_nbr, base, ret, nbrlen(nbr, base));
+	*(*ret + nbrlen(nbr,base)) = '\0';
 	return (ret);
 }
