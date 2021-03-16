@@ -15,7 +15,6 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h> //제겊리요
 # include "./libft/libft.h"
 
 # define SPECIFIER "csdiupxX%"

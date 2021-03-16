@@ -59,6 +59,6 @@ char	**ft_putnbr_base(unsigned long nbr, char *base)
 	}
 	else
 		recursive_base(temp_nbr, base, ret, nbrlen(nbr, base));
-	*(*ret + nbrlen(nbr,base)) = '\0';
+	*(*ret + nbrlen(nbr, base)) = '\0';
 	return (ret);
 }

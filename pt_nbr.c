@@ -25,7 +25,7 @@ int		pt_plusd(t_info *info)
 		free(info->buf);
 	}
 	info->len = ft_strlen(info->ret);
-	if (info->width > info-> len)
+	if (info->width > info->len)
 		info->buf = (char *)malloc(info->width - info->len + 1);
 	else
 		info->buf = ft_strdup("");
@@ -51,8 +51,6 @@ int		pt_minusd(t_info *info)
 	}
 	info->len = ft_strlen(info->ret);
 	info->buf = ft_minus_malloc(info->width - info->len - 1 + 1);
-//	if (!(info->buf = (char *)malloc(info->width - info->len - 1)))
-//		info->buf = ft_strdup("");
 	if (info->prec < 0 && info->f_zero == 1 && info->f_minus == 0)
 	{
 		ft_bewhat(info->buf, info->width - 1 - info->len, '0');
@@ -84,7 +82,6 @@ int		pt_u(t_info *info)
 	}
 	info->len = ft_strlen(info->ret);
 	info->buf = ft_minus_malloc(info->width - info->len + 1);
-//	info->buf = (char *)malloc(info->width - info->len);
 	if (info->prec < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(info->buf, info->width - info->len, '0');
 	else
