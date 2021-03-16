@@ -54,12 +54,12 @@ int		pt_s(va_list ap, t_info *info)
 	free(info->buf);
 	return (info->cnt);
 }
-
+#include <string.h>
 int		pt_x(va_list ap, t_info *info)
 {
 	unsigned int	x;
 
-	x = va_arg(ap, int);
+	x = va_arg(ap, unsigned int);
 	if (x == 0 && info->prec == 0)
 		info->ret = ft_strdup("");
 	else
@@ -71,7 +71,8 @@ int		pt_x(va_list ap, t_info *info)
 		info->ret = ft_strjoin(info->buf, info->ret);
 		free(info->buf);
 	}
-	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
+	info->buf = ft_minus_malloc(info->width - ft_strlen(info->ret));
+//	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
 	info->len = ft_strlen(info->ret);
 	if (info->prec < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(info->buf, info->width - info->len, '0');
@@ -88,7 +89,7 @@ int		pt_bigx(va_list ap, t_info *info)
 {
 	unsigned int	x;
 
-	x = va_arg(ap, int);
+	x = va_arg(ap, unsigned int);
 	if (x == 0 && info->prec == 0)
 		info->ret = ft_strdup("");
 	else
@@ -100,7 +101,8 @@ int		pt_bigx(va_list ap, t_info *info)
 		info->ret = ft_strjoin(info->buf, info->ret);
 		free(info->buf);
 	}
-	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
+	info->buf = ft_minus_malloc(info->width - ft_strlen(info->ret));
+//	info->buf = (char *)malloc(info->width - ft_strlen(info->ret));
 	info->len = ft_strlen(info->ret);
 	if (info->prec < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(info->buf, info->width - info->len, '0');

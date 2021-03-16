@@ -25,7 +25,10 @@ int		pt_plusd(t_info *info)
 		free(info->buf);
 	}
 	info->len = ft_strlen(info->ret);
-	info->buf = (char *)malloc(info->width - info->len);
+	if (info->width > info-> len)
+		info->buf = (char *)malloc(info->width - info->len);
+	else
+		info->buf = ft_strdup("");
 	if (info->prec < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(info->buf, info->width - info->len, '0');
 	else
@@ -47,8 +50,9 @@ int		pt_minusd(t_info *info)
 		free(info->buf);
 	}
 	info->len = ft_strlen(info->ret);
-	if (!(info->buf = (char *)malloc(info->width - info->len - 1)))
-		info->buf = ft_strdup("");
+	info->buf = ft_minus_malloc(info->width - info->len - 1);
+//	if (!(info->buf = (char *)malloc(info->width - info->len - 1)))
+//		info->buf = ft_strdup("");
 	if (info->prec < 0 && info->f_zero == 1 && info->f_minus == 0)
 	{
 		ft_bewhat(info->buf, info->width - 1 - info->len, '0');
@@ -68,10 +72,10 @@ int		pt_minusd(t_info *info)
 
 int		pt_u(t_info *info)
 {
-	if (info->int_d == 0 && info->prec == 0)
+	if (info->int_u == 0 && info->prec == 0)
 		info->ret = 0;
 	else
-		info->ret = ft_itoa(info->int_d);
+		info->ret = ft_itoa(info->int_u);
 	if (info->prec > (info->len = (int)ft_strlen(info->ret)))
 	{
 		info->buf = ft_bufwhat(info->prec - info->len, '0');
@@ -79,7 +83,8 @@ int		pt_u(t_info *info)
 		free(info->buf);
 	}
 	info->len = ft_strlen(info->ret);
-	info->buf = (char *)malloc(info->width - info->len);
+	info->buf = ft_minus_malloc(info->width - info->len);
+//	info->buf = (char *)malloc(info->width - info->len);
 	if (info->prec < 0 && info->f_zero == 1 && info->f_minus == 0)
 		ft_bewhat(info->buf, info->width - info->len, '0');
 	else

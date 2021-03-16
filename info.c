@@ -60,6 +60,7 @@ void	info_init(t_info *info)
 	info->spec = 0;
 	info->i = 0;
 	info->int_d = 0;
+	info->int_u = 0;
 	info->len = 0;
 	info->buf = 0;
 	info->str = 0;

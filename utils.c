@@ -52,11 +52,21 @@ char	*ft_bufwhat(int size, int what)
 	return (temp);
 }
 
+char	*ft_minus_malloc(int n)
+{
+	char	*buf;
+
+	if (n > 0)
+		buf = (char *)malloc((unsigned int)n);
+	else
+		buf = ft_strdup("");
+	return (buf);
+}
+
 char	*ft_dup_options(char *str, char *type, int *index)
 {
 	int				i;
 	int				j;
-	char			*temp;
 	char			*ret;
 
 	i = 0;
@@ -68,10 +78,8 @@ char	*ft_dup_options(char *str, char *type, int *index)
 			if (str[i] == type[j++])
 			{
 				*index += i;
-				if (!(temp = ft_strndup(str, i)))
+				if (!(ret = ft_strndup(str, i + 1)))
 					return (0);
-				ret = temp;
-				free(temp);
 				return (ret);
 			}
 		}

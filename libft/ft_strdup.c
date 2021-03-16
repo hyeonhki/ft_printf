@@ -41,7 +41,7 @@ char	*ft_strndup(const char *src, int n)
 	temp = (char *)malloc((unsigned int)n + 1);
 	if (temp == 0)
 		return (0);
-	while (src[i] != '\0' && n >= 0)
+	while (src[i] != '\0' && n > 0)
 	{
 		temp[i] = src[i];
 		i++;

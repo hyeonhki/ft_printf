@@ -15,6 +15,15 @@
 #include <string.h>
 #include <limits.h>
 
+int main2()
+{
+	setbuf(stdout, NULL);
+	printf("%x\n", -12);
+	ft_printf("%x\n", -12);
+//	printf("%7d\n", -14);
+//	ft_printf("%7d\n", -14);
+}
+
 int main()
 { 
 	//printf("경우 1: %d"); //서식지정자가 있지만, 인자가 없는 경우
@@ -27,8 +36,37 @@ int main()
 //	printf("%d\n",ft_atoi("1234567d"));
 //	printf("printf : %*10c\n",5,'a');
 	setbuf(stdout, NULL);
-	printf("%d\n",printf("%0.*d", -4, -135));
-	printf("%d\n",ft_printf("%0.*d", -4, -135));
+	int		a = 1;
+	int		b = 0;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	int		f = 42;
+	int		g = 25;
+	int		h = 4200;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+	char	*n = "abcdefghijklmnop";
+	char	*o = "-a";
+	char	*p = "-12";
+	char	*q = "0";
+	char	*r = "%%";
+	char	*s = "-2147483648";
+	char	*t = "0x12345678";
+	char	*u = "-0";
+
+	//BPRINT("Simple input test");
+	printf(" --- Return : %d\n", printf("%.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+	ft_printf(" --- Return : %d\n", ft_printf("%.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+//	printf(" --- Return : %d\n", printf("%*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+//	ft_printf(" --- Return : %d\n", ft_printf("%*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X, %*u, %*x, %*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e));
+//	printf("[%d]\n",printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j));
+//	ft_printf("[%d]\n",ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X\n", i, j, k, l, m, n, c, c, j, j, j));
+//	printf("%d\n",printf("%0.*d", -4, -135));
+//	printf("%d\n",ft_printf("%0.*d", -4, -135));
 //	printf("[%0.*d]\n", -1, -135);
 //	ft_printf("[%0.*d]\n", -1, -135);
 //	printf("[%0d]\n", -135);
@@ -92,4 +130,5 @@ int main()
 //	printf(" %d abcdfefe\n",123);
 //	ft_printf("test\n");
 	//ft_printf("test");
+	return (0);
 }

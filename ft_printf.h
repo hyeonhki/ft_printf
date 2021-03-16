@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdio.h> //제거필요
 # include "./libft/libft.h"
 
 # define SPECIFIER "csdiupxX%"
@@ -32,6 +33,7 @@ typedef struct	s_info
 	int				int_d;
 	int				len;
 	int				cnt;
+	unsigned int	int_u;
 	char			*ret;
 	char			*str;
 	char			*buf;
@@ -57,6 +59,7 @@ char			*ft_dup_options(char *str, char *type, int *index);
 void			ft_bewhat(void *ptr, int size, int what);
 char			*ft_bufwhat(int size, int what);
 void			ft_multifree(char *p1, char *p2);
+char			*ft_minus_malloc(int n);
 
 void			info_check_flag(char **str, t_info *info);
 int				info_check_init(char c, const char *src);

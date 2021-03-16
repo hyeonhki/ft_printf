@@ -46,7 +46,7 @@ void	pt_flagswap(int flag, char *s1, char *s2)
 int		pt_buf(t_info *info)
 {
 	info->ret = ft_strdup("%");
-	info->buf = (char *)malloc(info->width - 1);
+	info->buf = ft_minus_malloc(info->width - 1);
 	if (info->f_minus == 0 && info->f_zero == 1)
 		ft_bewhat(info->buf, info->width - 1, '0');
 	else

@@ -25,7 +25,7 @@ int		print_info(t_info *info, va_list ap)
 	}
 	if (info->spec == 'u')
 	{
-		info->int_d = va_arg(ap, int);
+		info->int_u = va_arg(ap, unsigned int);
 		return (pt_u(info));
 	}
 	if (info->spec == 'p')
@@ -51,8 +51,7 @@ int		case_print(char **str, va_list ap)
 	i = 0;
 	box = ft_dup_options(temp + 1, SPECIFIER, &i);
 	*str += i + 2;
-	if (!(info = malloc(sizeof(t_info) * 1)))
-		return (0);
+	info = malloc(sizeof(t_info) * 1);
 	info_init(info);
 	save_info(info, box, ap);
 	ret = print_info(info, ap);
@@ -75,7 +74,9 @@ int		t_operator(char *input, va_list ap)
 			continue ;
 		}
 		if (*input)
+		{
 			ret += case_print(&input, ap);
+		}
 	}
 	return (ret);
 }

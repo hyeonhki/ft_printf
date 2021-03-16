@@ -34,21 +34,6 @@ void	nbrtostr(char *str, unsigned int n, int len)
 	}
 }
 
-void	u_nbrtostr(char *str, unsigned int n, int len)
-{
-	int				p;
-	unsigned int	n1;
-
-	n1 = n;
-	p = 0;
-	str[len] = '\0';
-	while (--len >= p)
-	{
-		str[len] = n1 % 10 + '0';
-		n1 = n1 / 10;
-	}
-}
-
 char	*ft_itoa(unsigned int n)
 {
 	char			*temp;
